@@ -20,7 +20,7 @@ export const Form = styled.form`
   position: relative;
   flex-direction: column;
   gap: 3rem;
-  margin-top:12rem;
+  margin-top: 20rem;
   box-shadow: 0px 8px 16px rgba(6, 21, 43, 0.08);
   div{
     width: 80%;
@@ -32,8 +32,8 @@ export const Form = styled.form`
   div input{
     border-radius: 4px;
   }
-  @media (min-width: 1030px) {
-    margin-top: 20rem;
+  div input::placeholder{
+    color: #9A9A9A;
   }
 `;
 
@@ -79,14 +79,25 @@ export const TopImage = styled.section`
     position: absolute;
     top: -39%;
     div{
-      
       width: 166px;
       height: 33px;
       background-color: var(--green);
       bottom: 45%;
-      right: 35%;
+      right: 50%;
       z-index: -1;
       position: absolute;
-
     }
+`;
+
+export const InputWrapper = styled.section`
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+    gap: 2rem;
+  @media (min-width: 1030px) {
+    flex-direction: row;
+    width: 80%;
+  }
 `;

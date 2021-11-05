@@ -6,6 +6,7 @@ import {
     SubTitle,
     FlexContainer,
     TopImage,
+    InputWrapper,
   } from "./styles";
 import "antd/dist/antd.css";
 import * as yup from "yup";
@@ -20,6 +21,7 @@ const SendEmail = () => {
     name: yup.string(),
     email: yup.string().email("Invalid email").required("Insert you email!"),
     telephone: yup.string().required("Insert your telephone number!"),
+    message: yup.string().required("Write a message"),
   });
 
   const {
@@ -50,22 +52,34 @@ const SendEmail = () => {
             register={register}
             name="name"
             label="Your name"
+            placeholder="type your name here..."
             error={errors.name?.message}
           ></Input>
-          <Input
-            register={register}
-            name="email"
-            label="Email*"
-            type="email"
-            error={errors.email?.message}
-          ></Input>
-          <Input
-            register={register}
-            name="telephone"
-            label="Telephone*"
-            placeholder="(  ) ____-____"
-            error={errors.telephone?.message}
-          ></Input>
+          <InputWrapper>
+            <Input
+                register={register}
+                name="email"
+                label="Email*"
+                type="email"
+                placeholder="example@example.com"
+                error={errors.email?.message}
+            ></Input>
+            <Input
+                register={register}
+                name="telephone"
+                label="Telephone*"
+                placeholder="(  ) ____-____"
+                error={errors.telephone?.message}
+            ></Input>
+          </InputWrapper>
+            <Input
+                register={register}
+                name="message"
+                label="Message*"
+                type="text"
+                placeholder="Type what you want to say to us"
+                error={errors.message?.message}
+            ></Input>
           <Button type="submit">SEND NOW</Button>
       </Form>
   );
