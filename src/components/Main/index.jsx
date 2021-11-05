@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import { Container, StartContainer,Title, Subtitle, Description, TitleContainer, 
-  ToDoListTitleContainer,TodoListTitle,TodoListDescription, ListContainer, ImageContainer, Logo, Landing } from "./styles";
+  ToDoListTitleContainer,TodoListTitle,TodoListDescription, ListContainer, ImageContainer, Logo, Landing, Grafism } from "./styles";
 import Scroll from "../../assets/images/icon-scroll.svg"
 import ToDoList from "../ToDoList";
 import DoneList from "../DoneList";
@@ -8,6 +8,8 @@ import Slider from "../Slider";
 import { useRef } from "react";
 import LandingImage from "../../assets/images/landingImage.png"
 import LogoImage from "../../assets/images/BG.svg"
+import SendEmail from "../SendEmail";
+import Grafismo from "../../assets/images/grafismo.png"
 
 const Main = () => {
   const Todo = useRef(null)
@@ -32,10 +34,12 @@ const Main = () => {
             <TodoListDescription>Drag and drop to set your main priorities, check when done and create what´s new.</TodoListDescription>
         </ToDoListTitleContainer>
         <ListContainer ref={Todo}>
+          <Grafism src={Grafismo}/>
           <ToDoList></ToDoList>
           <DoneList></DoneList>
         </ListContainer>
         <Slider></Slider>
+        <SendEmail/>
     </Container>
   );
 };

@@ -5,6 +5,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: var(--white);
     box-shadow: 0px 4px 12px rgba(66, 66, 66, 0.198454);
     .ant-btn-primary {
         margin-top: 1rem;

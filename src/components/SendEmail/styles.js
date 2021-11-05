@@ -1,93 +1,92 @@
 import styled from "styled-components";
 
-export const BodyContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  position: relative;
-  z-index: 350;
-  min-height: 80px;
-
-  > div {
-    position: relative;
-    z-index: 350;
-  }
-`;
-
-export const InfoContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-`;
-
-export const ButtonWrap = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: flex-end;
-`;
-
-export const ButtonForm = styled.button`
-  border-radius: 20px;
-
-  margin: 20px 0 0;
-  margin-left: 6px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    margin-left: 4px;
-  }
-
-  padding: 4px 0;
-  &:hover {
-    filter: brightness(0.92);
-  }
-
-  background-color: var(${props => props.color});
-
-  color: var(--green);
-  font-weight: bold;
-  text-transform: uppercase;
-  font-size: 18px;
-  color: var(--white);
-
-  @media (min-width: 440px) {
-    width: 150px;
-    padding: 4px 0;
-  }
-`;
-
 export const Title = styled.h1`
   color: var(--black);
   font-family: "Montserrat";
-  font-weight: bold;
-  font-size: 28px;
+  font-size: 24px;
 `
 
 export const SubTitle = styled.h2`
-  color: var(--green);
   font-family: "Montserrat";
-  font-size: 20px;
+  font-weight: bold;
+  font-size: 24px;
 `
 
 export const Form = styled.form`
+  width: 80%;
+  max-width: 700px;
   display: flex;
   align-items: center;
   position: relative;
   flex-direction: column;
-  gap: 2rem;
-  margin-top: 2rem;
+  gap: 3rem;
+  margin-top:12rem;
+  box-shadow: 0px 8px 16px rgba(6, 21, 43, 0.08);
+  div{
+    width: 80%;
+  }
+  div label{
+    font-size: 16px;
+    font-weight: normal;
+  }
+  div input{
+    border-radius: 4px;
+  }
+  @media (min-width: 1030px) {
+    margin-top: 20rem;
+  }
 `;
 
 export const Button = styled.button`
-    font-size: 22px;
-    color: var(--white);
-    background: var(--green);
-    outline: none;
-    border: none;
-    width: 140px;
-    height: 50px;
-    margin: 1rem;
+  color: var(--white);
+  background: var(--green);
+  outline: none;
+  border: none;
+  width: 90%;
+  height: 50px;
+  margin: 1rem;
+  margin-bottom: 5rem;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  letter-spacing: 0.08em;
+  box-shadow: 0px 16px 24px rgba(6, 21, 43, 0.12);
+  @media (min-width: 1030px) {
+    width: 80%;
+  }
 `
+
+export const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  align-self: flex-start;
+  padding-left: 2rem;
+  @media (min-width: 1030px) {
+    padding-left: 4rem;
+  }
+`;
+
+export const TopImage = styled.section`
+    width: 191px;
+    height: 191px;
+    border-radius: 50%;
+    background-image: url(${props => props.image});
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    top: -39%;
+    div{
+      
+      width: 166px;
+      height: 33px;
+      background-color: var(--green);
+      bottom: 45%;
+      right: 35%;
+      z-index: -1;
+      position: absolute;
+
+    }
+`;

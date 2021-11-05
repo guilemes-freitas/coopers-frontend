@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+
 export const Container = styled.main`
     width: 100%;
     display: flex;
@@ -16,6 +17,18 @@ export const StartContainer = styled.section`
         justify-content: space-between;
     } 
 
+`;
+
+export const Grafism = styled.img`
+    position: absolute; 
+    right: 90%;
+    top: 3%;
+    z-index: -1;
+    width: 267px;
+    @media screen and (min-width: 1030px) {
+        width: 671px;
+        right: 93%;
+    } 
 `;
 
 export const TitleContainer = styled.div`
@@ -141,8 +154,10 @@ export const ListContainer = styled.section`
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    position: relative;
     gap: 2rem;
     @media screen and (min-width: 720px) {
         flex-direction: row;
+        width: 100%;
     } 
 `;

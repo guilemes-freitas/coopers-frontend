@@ -4,12 +4,16 @@ import {
     Button,
     Form,
     SubTitle,
+    FlexContainer,
+    TopImage,
   } from "./styles";
 import "antd/dist/antd.css";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Input from "../Input"
+import iconMail from "../../assets/images/icon-mail.svg"
+import Tatiana from "../../assets/images/tatiana.png"
   
 const SendEmail = () => {
   const schema = yup.object().shape({
@@ -31,11 +35,17 @@ const SendEmail = () => {
 
   return (
       <Form onSubmit={handleSubmit(onSubmitFunction)}>
-          <div>
-            <Title>GET IN</Title>
-            <SubTitle>TOUCH</SubTitle>
-          </div>
-          
+          <TopImage image={Tatiana}>
+              <div></div>
+          </TopImage>
+          <FlexContainer>
+            <img src={iconMail} alt="" />
+            <div>
+                <Title>GET IN</Title>
+                <SubTitle>TOUCH</SubTitle>
+            </div>
+          </FlexContainer>
+
           <Input
             register={register}
             name="name"
