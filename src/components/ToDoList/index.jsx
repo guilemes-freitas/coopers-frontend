@@ -19,9 +19,12 @@ const ToDoList = () => {
   };
 
   const handleCreate = (event) =>{
-    const data = {"title":event.target.value}
-    addTask(data)
-    event.target.value = ""
+    if(event.target.value.length > 0){
+
+      const data = {"title":event.target.value}
+      addTask(data)
+      event.target.value = ""
+    }
   }
 
   return (

@@ -9,9 +9,8 @@ export const Container = styled.div`
 
     margin-top: 2rem;
     margin-bottom: 10rem;
-     .slider-wrapper{
+    .slider-wrapper{
          height: 520px;
-
     }
     div > ul > .dot{
         background: #C4C4C4 !important;
@@ -26,6 +25,24 @@ export const Container = styled.div`
     .carousel-slider{
         width: 100%;
     }
+    
+    @media screen and (min-width: 1030px) {
+        width: 100%;
+        max-width: 1080px;
+        border-radius: 10px;
+        height: 520px;
+    } 
+
+    @media screen and (min-width: 1250px) {
+        text-align: start;
+        .carousel-slider{
+            margin-left: 5rem;
+            width: 106% !important;
+        }
+        .carousel .control-dots {
+            width: 80%;
+        }
+    } 
 `;
 
 export const Title = styled.h3`
@@ -35,4 +52,12 @@ export const Title = styled.h3`
     font-family: 'Montserrat';
     height: 80px;
     margin-top: 20px;
+
+    @media screen and (min-width: 1250px) {
+        height: 100px;
+        margin-top: 4rem;
+        margin-left: 5rem;
+        align-self: flex-start;
+        font-size: 48px;
+    }
 `;

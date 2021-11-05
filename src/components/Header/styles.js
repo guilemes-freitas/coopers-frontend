@@ -8,16 +8,24 @@ export const Container = styled.header`
   height: 65px;
   margin-bottom: 0.5rem;
   padding: 1rem;
+  @media screen and (min-width: 720px) {
+    padding: 3rem;
+  } 
 `;
 
 export const LogoContainer = styled.nav`
   display: flex;
   align-items: center;
-  justify-content: space-around;
   img {
     width: 130px;
     height: 33px;
   }
+  @media screen and (min-width: 720px) {
+    img {
+      width: 217px;
+      height: 50px;
+    }
+  } 
 `;
 
 export const ButtonContainer = styled.div`
@@ -39,4 +47,12 @@ export const ButtonContainer = styled.div`
     background-color: var(--black);
     
   }
+  @media screen and (min-width: 720px) {
+    width: 22%;
+    .ant-btn-primary {
+      width: 120px;
+      height: 40px;
+      font-size: 14px;
+    }
+  } 
 `;

@@ -4,12 +4,12 @@ import SliderCard from "../SliderCard"
 import { Container, Title } from './styles';
 
 const Slider = () => {
-  const [percentage,setPercentage] = useState(100);
+  const [percentage,setPercentage] = useState(80);
   const updateSize = () => {
     if (window.innerWidth >= 720 ) {
       setPercentage(33);
     } else{
-      setPercentage(100);
+      setPercentage(80);
       
     }
   }
@@ -19,7 +19,7 @@ const Slider = () => {
     if (window.innerWidth >= 720 ) {
       setPercentage(33);
     } else{
-      setPercentage(100);
+      setPercentage(80);
     }
   },[])
   return (

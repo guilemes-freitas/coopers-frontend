@@ -11,6 +11,12 @@ export const Container = styled.div`
     box-shadow: 8px 8px 24px rgba(12, 41, 208, 0.16);
     background-color: var(--white);
     position: relative;
+    @media screen and (min-width: 1030px) {
+        width: 300px;
+    }
+    @media screen and (min-width: 1400px) {
+        width: 360px;
+    }
 `;
 
 export const Image = styled.div`

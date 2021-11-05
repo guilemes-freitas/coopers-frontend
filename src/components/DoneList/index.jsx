@@ -21,7 +21,8 @@ const DoneList = () => {
         <Container>
             <Top></Top>
             <Title>Done</Title>
-            <SubTitle>Congratulions!</SubTitle>
+            {doneTasks.length > 0 && <SubTitle>Congratulions!</SubTitle>}
+            
             <DoneTasks>You have done {doneTasks.length} tasks</DoneTasks>
             <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId={"ToDoTasks"}>

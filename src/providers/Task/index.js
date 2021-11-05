@@ -21,6 +21,8 @@ export const TaskProvider = ({ children }) => {
         initializeTasks();
       });
     }else{
+      task.id = tasks.length +1
+      task.completed = false;
       setTasks([...tasks,task]);
     }
   };

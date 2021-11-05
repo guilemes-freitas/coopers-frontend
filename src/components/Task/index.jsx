@@ -17,13 +17,15 @@ const Task = ({index,task}) => {
   }
 
   const handleUpdate = (event) =>{
-    task.title = event.target.value
-    updateTask(task)
-    event.target.value=""
+    if(event.target.value.length > 0){
+      task.title = event.target.value
+      updateTask(task)
+      event.target.value=""
+    }
   }
 
   return (
-    <Draggable key={task.id} draggableId={task.id} index={index}>
+    <Draggable key={task.id} draggableId={task.id.toString()} index={index}>
           {(provided) => (
             <Container 
                 {...provided.draggableProps}

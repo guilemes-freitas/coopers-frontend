@@ -17,6 +17,9 @@ export const Text = styled.h3`
     font-size: 18px;
     font-weight: 600;
     color: var(--white);
+    @media screen and (min-width: 1030px) {
+        font-size: 24px;
+    }
 `;
 
 export const Description = styled.span`
@@ -30,4 +33,7 @@ export const BottomDiv = styled.div`
     position: absolute;
     bottom: 0;
     clip-path: polygon(100% 0,100% 0,100% 0,100% 100%,0 100%,0 25%);
+    @media screen and (min-width: 1030px) {
+        width: 511px;
+    }
 `;
