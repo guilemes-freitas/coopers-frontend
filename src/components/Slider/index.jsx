@@ -1,13 +1,31 @@
+import { useEffect, useState } from 'react';
 import { Carousel } from 'react-responsive-carousel';
 import SliderCard from "../SliderCard"
 import { Container, Title } from './styles';
-// import Bitmap from "../../assets/images/bitmap.png"
 
 const Slider = () => {
+  const [percentage,setPercentage] = useState(100);
+  const updateSize = () => {
+    if (window.innerWidth >= 720 ) {
+      setPercentage(33);
+    } else{
+      setPercentage(100);
+      
+    }
+  }
+  window.addEventListener('resize', updateSize);
+  
+  useEffect(()=>{
+    if (window.innerWidth >= 720 ) {
+      setPercentage(33);
+    } else{
+      setPercentage(100);
+    }
+  },[])
   return (
     <Container>
         <Title>good things</Title>
-        <Carousel showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} infiniteLoop={true} centerMode={true}>
+        <Carousel centerMode={true} centerSlidePercentage={percentage} showStatus={false} showThumbs={false} showArrows={false} autoPlay={true} infiniteLoop={true}>
             <SliderCard chosenImage={0} 
             description={"Organize your daily job enhance your life performance"} 
             />

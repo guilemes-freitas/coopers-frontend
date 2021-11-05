@@ -7,13 +7,15 @@ import {
     SubTitle,
   } from "./styles";
 import "antd/dist/antd.css";
-import api from "../../services/api";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Input from "../Input"
+import { useUser } from "../../providers/User";
   
 const ModalSignUp = ({ isModalVisible = false, setIsModalVisible }) => {
+  const {createAccount} = useUser()
+  
   const schema = yup.object().shape({
     username: yup.string().required("Insert an username!"),
     password: yup.string().required("Insert a password!"),
@@ -33,17 +35,9 @@ const ModalSignUp = ({ isModalVisible = false, setIsModalVisible }) => {
 
   const onSubmitFunction = ({username,password}) => {
     const user = {username,password}
-    console.log(user)
-    api
-    .post("/accounts/", user)
-    .then((response) => {
-        const { token } = response.data;
-
-        localStorage.setItem("@Coopers:token", JSON.stringify(token));
-        setIsModalVisible(false);
-    })
-    .catch((err) => console.log(err));
-    };
+    
+    setIsModalVisible(createAccount(user));
+  };
 
   const handleCloseModal = () => {
     setIsModalVisible(false);

@@ -2,10 +2,11 @@ import { Button } from "antd";
 import Task from "../Task";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { Container, Top, Title,SubTitle, TasksContainer, DoneTasks} from "./styles";
-import { useState } from "react";
+import { useTask } from "../../providers/Task";
 
 const DoneList = () => {
-    const [tasks,setTasks] = useState([{'id':'1','title':'abluble','completed':true},{'id':'500','title':'abluble2','completed':true}])
+    const {tasks, setTasks, removeIncompleted } = useTask();
+    const doneTasks = tasks?.filter((filtered) => filtered.completed);
 
     const handleOnDragEnd = (result) => {
         if (!result.destination) return;
@@ -21,21 +22,20 @@ const DoneList = () => {
             <Top></Top>
             <Title>Done</Title>
             <SubTitle>Congratulions!</SubTitle>
-            <DoneTasks>You have done 5 tasks</DoneTasks>
+            <DoneTasks>You have done {doneTasks.length} tasks</DoneTasks>
             <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId={"ToDoTasks"}>
             {(provided) => (
                 <TasksContainer {...provided.droppableProps} ref={provided.innerRef}>
-
-                    {tasks.map((task, index) =>{
+                    {doneTasks?.map((task, index) =>{
                     return  <Task key={task.id} index={index} task={task}></Task>
                     })}
                     {provided.placeholder}
                 </TasksContainer>
-                )}
+            )}
             </Droppable>
             </DragDropContext>
-            <Button type="primary">erase all</Button>
+            <Button type="primary" onClick={removeIncompleted}>erase all</Button>
         </Container>
     );
 };

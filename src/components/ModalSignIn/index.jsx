@@ -7,20 +7,20 @@ import {
     SubTitle,
   } from "./styles";
 import "antd/dist/antd.css";
-import api from "../../services/api";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import Input from "../Input"
-import { useState } from "react";
+import { useUser } from "../../providers/User";
+import { useTask } from "../../providers/Task";
   
 const ModalSignIn = ({ isModalVisible = false, setIsModalVisible }) => {
+  const {Login} = useUser()
+  const {initializeTasks} = useTask()
   const schema = yup.object().shape({
     username: yup.string().required("Campo obrigatório!"),
     password: yup.string().required("Campo obrigatório!"),
   });
-
-  const [isError, setIsError] = useState(false)
 
   const {
     register,
@@ -30,20 +30,10 @@ const ModalSignIn = ({ isModalVisible = false, setIsModalVisible }) => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmitFunction = (data) => {
-    console.log(data)
-    api
-      .post("login/", data)
-      .then((response) => {
-        const { token } = response.data;
-
-        localStorage.setItem("@Coopers:token", JSON.stringify(token));
-        setIsModalVisible(false);
-      })
-      .catch((err) =>{
-        setIsError(true)
-        console.log("username ou senha inválidos")
-      });
+  const onSubmitFunction = ({username,password}) => {
+    const user = {username,password}
+    setIsModalVisible(Login(user))
+    initializeTasks();
   };
 
   const handleCloseModal = () => {
@@ -71,7 +61,7 @@ const ModalSignIn = ({ isModalVisible = false, setIsModalVisible }) => {
             register={register}
             name="username"
             label="User:"
-            error={errors.username?.message || isError}
+            error={errors.username?.message}
           ></Input>
           <Input
             register={register}
