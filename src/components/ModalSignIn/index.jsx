@@ -5,6 +5,8 @@ import {
     Button,
     Form,
     SubTitle,
+    Image,
+    TitleContainer,
   } from "./styles";
 import "antd/dist/antd.css";
 import * as yup from "yup";
@@ -13,6 +15,7 @@ import { useForm } from "react-hook-form";
 import Input from "../Input"
 import { useUser } from "../../providers/User";
 import { useTask } from "../../providers/Task";
+import modalImage from "../../assets/images/modalImage.png";
   
 const ModalSignIn = ({ isModalVisible = false, setIsModalVisible }) => {
   const {Login} = useUser()
@@ -52,11 +55,14 @@ const ModalSignIn = ({ isModalVisible = false, setIsModalVisible }) => {
     >
       
       <Form onSubmit={handleSubmit(onSubmitFunction)}>
-          <div>
-            <Title>Sign in</Title>
-            <SubTitle>to access your list</SubTitle>
+          <TitleContainer>
+            <Image src={modalImage}></Image>
+            <div>
+              <Title>Sign in</Title>
+              <SubTitle>to access your list</SubTitle>
+            </div>
 
-          </div>
+          </TitleContainer>
           <Input
             register={register}
             name="username"

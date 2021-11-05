@@ -55,6 +55,9 @@ export const Container = styled.div`
     height: 48px;
     @media screen and (min-width: 720px) {
         width: 50%;
-        height: 36px;
+    }
+    @media (min-width: 1030px) {
+        width: 342px;
+        height: 64px;
     }
 `;

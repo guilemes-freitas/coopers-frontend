@@ -13,12 +13,9 @@ import Input from "../Input"
   
 const SendEmail = () => {
   const schema = yup.object().shape({
-    username: yup.string().required("Insert an username!"),
-    password: yup.string().required("Insert a password!"),
-    passwordConfirm: yup
-      .string()
-      .oneOf([yup.ref("password")], "Passwords didn't match")
-      .required("Confirm your password!"),
+    name: yup.string(),
+    email: yup.string().email("Invalid email").required("Insert you email!"),
+    telephone: yup.string().required("Insert your telephone number!"),
   });
 
   const {
@@ -35,31 +32,31 @@ const SendEmail = () => {
   return (
       <Form onSubmit={handleSubmit(onSubmitFunction)}>
           <div>
-            <Title>Sign up</Title>
-            <SubTitle>to start organizing</SubTitle>
-
+            <Title>GET IN</Title>
+            <SubTitle>TOUCH</SubTitle>
           </div>
+          
           <Input
             register={register}
-            name="username"
-            label="User:"
-            error={errors.username?.message}
+            name="name"
+            label="Your name"
+            error={errors.name?.message}
           ></Input>
           <Input
             register={register}
-            name="password"
-            label="Password:"
-            type="password"
-            error={errors.password?.message}
+            name="email"
+            label="Email*"
+            type="email"
+            error={errors.email?.message}
           ></Input>
           <Input
             register={register}
-            name="passwordConfirm"
-            label="Confirm password:"
-            type="password"
-            error={errors.passwordConfirm?.message}
+            name="telephone"
+            label="Telephone*"
+            placeholder="(  ) ____-____"
+            error={errors.telephone?.message}
           ></Input>
-          <Button type="submit">Sign-in</Button>
+          <Button type="submit">SEND NOW</Button>
       </Form>
   );
 };

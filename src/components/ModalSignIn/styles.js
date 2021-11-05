@@ -3,13 +3,10 @@ import styled from "styled-components";
 
 export const CustomModal = styled(Modal)`
   position: relative;
-  h3 {
-    position: relative;
-    font-size: 18px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    display: flex;
-    align-items: center;
+  .ant-modal-close {
+    color: var(--black);
+    padding-right: 1rem;
+    font-size: 20px;
   }
 
   .ant-modal-header {
@@ -20,11 +17,6 @@ export const CustomModal = styled(Modal)`
     background-color: var(--white);
   }
 
-  .ant-modal-title {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
   .ant-modal-body {
     background-color: var(--white);
     z-index: 1;
@@ -32,10 +24,6 @@ export const CustomModal = styled(Modal)`
   }
 
   .ant-modal-footer {
-    background-color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-top: none;
   }
 
@@ -49,6 +37,12 @@ export const CustomModal = styled(Modal)`
   @media (min-width: 460px) {
     .ant-modal-title {
       font-size: 22px;
+    }
+  }
+  @media (min-width: 1030px) {
+    .ant-modal-content{
+      height: 721px;
+      width: 932px;
     }
   }
 `;
@@ -117,31 +111,58 @@ export const Title = styled.h1`
   font-family: "Montserrat";
   font-weight: bold;
   font-size: 28px;
+  @media (min-width: 1030px) {
+      font-size: 80px;
+  }
 `
 
 export const SubTitle = styled.h2`
   color: var(--green);
   font-family: "Montserrat";
   font-size: 20px;
+  @media (min-width: 1030px) {
+      font-size: 50px;
+  }
 `
 
 export const Form = styled.form`
-  height: 300px;
   display: flex;
   align-items: center;
   position: relative;
   flex-direction: column;
   gap: 2rem;
   margin-top: 2rem;
+  @media (min-width: 1030px) {
+    gap: 4rem;
+  }
 `;
 
 export const Button = styled.button`
-    font-size: 22px;
-    color: var(--white);
-    background: var(--green);
-    outline: none;
-    border: none;
-    width: 140px;
-    height: 50px;
-    margin: 1rem;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  background: var(--green);
+  outline: none;
+  border: none;
+  width: 140px;
+  height: 50px;
+  margin: 1rem;
+  @media (min-width: 1030px) {
+    width: 300px;
+    height: 64px;
+    font-size: 24px;
+  }
 `
+
+export const Image = styled.img`
+  display: none;
+  width: 231px;
+  height: 231px;
+  @media (min-width: 1030px) {
+    display: initial;
+  }
+`
+
+export const TitleContainer = styled.div`
+  display: flex;
+`;

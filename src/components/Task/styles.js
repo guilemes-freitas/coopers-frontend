@@ -17,6 +17,12 @@ export const Container = styled.li`
             opacity: 1;
         }
     }
+    @media (min-width: 1030px) {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        justify-content: flex-start;
+    }
 `;
 
 export const CheckButton = styled.button`
@@ -25,12 +31,20 @@ export const CheckButton = styled.button`
     border-radius: 50%;
     border: 2px solid var(--orange);
     background-color: transparent;
+    @media (min-width: 1030px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 export const CompletedIcon = styled.img`
     width: 16px;
     height: 16px;
     border-radius: 50%;
+    @media (min-width: 1030px) {
+        width: 24px;
+        height: 24px;
+    }
 `;
 
 export const DeleteButton = styled.button`
@@ -56,5 +70,11 @@ export const Input = styled.input`
         font-size: 12px;
         color: var(--black);
         opacity: 1;
+    }
+    @media (min-width: 1030px) {
+    font-size: 16px;
+    ::placeholder{
+        font-size: 16px;
+    }
     }
 `;

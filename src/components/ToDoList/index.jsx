@@ -1,8 +1,9 @@
 import { Button } from "antd";
 import Task from "../Task";
-import { Container, Top, Title,SubTitle,Input, TasksContainer} from "./styles";
+import { Container, Top, Title,SubTitle,Input, TasksContainer, Image, InputContainer} from "./styles";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { useTask } from "../../providers/Task";
+import ConfirmIcon from "../../assets/images/confirm.svg"
 
 const ToDoList = () => {
   const {tasks, setTasks, addTask, removeCompleted } = useTask();
@@ -33,7 +34,10 @@ const ToDoList = () => {
         <Title>To-do</Title>
         <SubTitle>Take a breath.</SubTitle>
         <SubTitle>Start doing.</SubTitle>
-        <Input type="text" placeholder="Add new here..." onBlur={(event) => handleCreate(event)}/>
+        <InputContainer>
+          <Image src={ConfirmIcon}/>
+          <Input type="text" placeholder="Add new here..." onBlur={(event) => handleCreate(event)}/>
+        </InputContainer>
         <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId={"ToDoTasks"}>
           {(provided) => (

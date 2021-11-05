@@ -75,6 +75,7 @@ export const TaskProvider = ({ children }) => {
 
   const updateTask = (task) => {
     const data = {
+    "id":task.id,
     "title":task.title,
     "completed":task.completed}
 
